@@ -34,10 +34,10 @@
                 elements: ele,
                 attribute: attr
             };
-        }
 
-        if (this[name].value && this[name].map && this[name].map.elements && this[name].map.attribute) {
-            setColor(this[name].map.elements, this[name].map.attribute, this[name].value);
+            if (this[name].value) {
+                setColor(ele, attr, this[name].value);
+            }
         }
     }
 
@@ -77,10 +77,10 @@
             }
 
             this[name].value = value;
-        }
 
-        if (this[name] && this[name].value && this[name].map && this[name].map.elements && this[name].map.attribute) {
-            setColor(this[name].map.elements, this[name].map.attribute, this[name].value);
+            if (this[name].map && this[name].map.elements && this[name].map.attribute) {
+                setColor(this[name].map.elements, this[name].map.attribute, value);
+            }
         }
 
         return this;
@@ -88,7 +88,7 @@
 
     // Map a custome color name with DOM elements and attributes
     //
-    // FIXME : When .map is call before DOMReady, it should be defer until then.
+    // FIXME : When CustomColor.map is call before DOMReady, it should be defer until then.
     CustomColor.prototype.map = function map () {
         var that = this;
         // This method can be call for a single color
