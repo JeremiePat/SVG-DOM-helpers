@@ -49,12 +49,18 @@
     //             attribute : "fill|stroke"
     //         } 
     //         value : string 
-    //     }
+    //     }*
     // 
     //     add (name, value)
     //     map (name, elements, attribute = fill)
     //     remove (name)
     // }
+    //
+    // FIXE ME: Make `colorname` dynamic properties readonly or 
+    // add a setter to make sur any change to it is pushed to the DOM
+    //
+    // FIXE ME: Make CustomColor live to make sur that any change in
+    // the DOM is handled to push the colors to it.
     function CustomColor() {
         var that = this;
 
